@@ -16,8 +16,8 @@ def home():
                 
                 <h1 style="color: #c0392b; font-size: 1.5em; margin-bottom: 20px;">🔥 OFERTA EXCLUSIVA!</h1>
 
-                <!-- IMAGEM DO PRODUTO ATUALIZADA -->
-                <img src="https://m.media-amazon.com/images/I/51OmHUb71RL._AC_SX342_.jpg" alt="Produto Amazon" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 10px; margin-bottom: 20px;">
+                <!-- IMAGEM DO PRODUTO CORRIGIDA -->
+                <img src="https://m.media-amazon.com" alt="Produto Amazon" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 10px; margin-bottom: 20px;">
 
                 <p style="font-size: 1.1em; color: #2c3e50; font-weight: bold; margin-bottom: 5px;">A promoção termina em:</p>
                 
@@ -25,8 +25,8 @@ def home():
                     00:00:00
                 </div>
 
-                <!-- SEU LINK DE AFILIADO COMPLETO -->
-                <a href="https://amzn.to" style="text-decoration: none;">
+                <!-- SEU LINK DE AFILIADO COMPLETO CORRIGIDO -->
+                <a href="https://www.amazon.com.br" style="text-decoration: none;">
                     <button style="background-color: #27ae60; color: white; border: none; padding: 18px 30px; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; width: 100%; box-shadow: 0px 4px 0px #1e8449;">
                         VER PREÇO NA AMAZON
                     </button>
