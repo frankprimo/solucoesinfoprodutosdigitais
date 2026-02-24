@@ -17,7 +17,8 @@ def home():
                 <h1 style="color: #c0392b; font-size: 1.5em; margin-bottom: 20px; text-align: center;">🔥 OFERTA EXCLUSIVA!</h1>
 
                 <center>
-                    <img src="https://m.media-amazon.com" alt="Fechadura Digital" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 10px; margin-bottom: 20px;">
+                    <!-- IMAGEM QUE ENVIOU -->
+                    <img src="https://m.media-amazon.com/images/I/51OmHUb71RL._AC_SX342_.jpg" alt="Fechadura Digital" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 10px; margin-bottom: 20px;">
                 </center>
 
                 <h2 style="font-size: 1.2em; color: #2c3e50; margin-bottom: 10px;">Fechadura Digital Inteligente</h2>
@@ -31,12 +32,14 @@ def home():
                     <p style="font-size: 1.1em; color: #2c3e50; font-weight: bold; margin-bottom: 5px;">A promoção termina em:</p>
                     <div id="countdown" style="font-size: 2.2em; font-weight: bold; color: #e67e22; margin-bottom: 20px; letter-spacing: 2px;">00:00:00</div>
 
-                    <!-- LINK CORRIGIDO ABAIXO -->
-                    <a href="https://www.amazon.com.br" style="text-decoration: none;">
+                    <!-- SEU LINK DE AFILIADO ATUALIZADO -->
+                    <a href="https://a.co" style="text-decoration: none;">
                         <button style="background-color: #27ae60; color: white; border: none; padding: 18px 30px; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; width: 100%; box-shadow: 0px 4px 0px #1e8449;">
                             VER PREÇO NA AMAZON
                         </button>
                     </a>
+
+                    <p style="margin-top: 25px; font-size: 0.7em; color: #bdc3c7;">© 2026 Soluções Infoprodutos Digitais</p>
                 </div>
             </div>
             <script>
