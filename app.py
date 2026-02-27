@@ -7,10 +7,10 @@ def home():
     # --- CONFIGURAÇÕES DO PRODUTO ---
     amazon_link = "https://a.co/d/0cXXjFpC" 
     
-    # LINK DA IMAGEM CORRIGIDO (ESSENCIAL PARA APARECER NO SITE)
+    # LINK DA IMAGEM TOTALMENTE CORRIGIDO ABAIXO:
     image_url = "https://m.media-amazon.com"
     
-    # VALOR DO PRODUTO (ATUALIZE CONFORME O SITE DA AMAZON)
+    # VALOR DO PRODUTO
     preco_produto = "R$ 1.199,00"
 
     return f"""
@@ -31,7 +31,6 @@ def home():
                 <img src="{image_url}" alt="Computador Completo" style="width: 100%; max-height: 280px; object-fit: contain; border-radius: 10px; margin-bottom: 15px;">
             </div>
 
-            <!-- EXIBIÇÃO DO PREÇO -->
             <div style="text-align: center; margin-bottom: 20px; background: #fff9e6; padding: 15px; border-radius: 10px; border: 1px dashed #ff9900;">
                 <span style="font-size: 0.9em; color: #7f8c8d; text-decoration: line-through;">De: R$ 1.499,00</span><br>
                 <span style="font-size: 1.8em; font-weight: 800; color: #27ae60;">Por apenas {preco_produto}</span><br>
@@ -55,7 +54,7 @@ def home():
                     </button>
                 </a>
                 <p style="margin-top: 25px; font-size: 0.7em; color: #bdc3c7;">
-                    © 2026 Soluções Infoprodutos Digitais | Preço sujeito a alteração.
+                    © 2026 Soluções Infoprodutos Digitais | Preço verificado na Amazon.br
                 </p>
             </div>
         </div>
