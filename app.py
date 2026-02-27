@@ -5,11 +5,11 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # --- CONFIGURAÇÕES DO PRODUTO (CORRIGIDAS) ---
-    # Link de afiliado atualizado com o seu último envio
+    # Link de afiliado atualizado
     amazon_link = "https://a.co/d/0cXXjFpC" 
     
-    # LINK DA IMAGEM OFICIAL COMPLETO PARA EXIBIÇÃO
-    image_url = "https://m.media-amazon.com"
+    # LINK DA IMAGEM OFICIAL CORRIGIDO
+    image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
 
     return f"""
     <html>
