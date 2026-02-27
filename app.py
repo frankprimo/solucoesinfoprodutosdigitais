@@ -4,13 +4,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # --- CONFIGURAÇÕES DO PRODUTO ---
-    # Seu link de afiliado Amazon
-    amazon_link = "https://a.co" 
-    https://a.co/d/038ijuyR
-    # LINK DA IMAGEM OFICIAL (CORRIGIDO PARA EXIBIÇÃO)
+    # --- CONFIGURAÇÕES DO PRODUTO (CORRIGIDAS) ---
+    # Link de afiliado atualizado com o seu último envio
+    amazon_link = "https://a.co/d/0cXXjFpC" 
+    
+    # LINK DA IMAGEM OFICIAL COMPLETO PARA EXIBIÇÃO
     image_url = "https://m.media-amazon.com"
-https://a.co/d/0cXXjFpC
+
     return f"""
     <html>
     <head>
@@ -54,4 +54,3 @@ https://a.co/d/0cXXjFpC
 
 if __name__ == "__main__":
     app.run()
-
