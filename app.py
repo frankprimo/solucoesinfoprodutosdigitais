@@ -4,8 +4,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # --- VARIÁVEIS ATUALIZADAS COM O SEU LINK ---
-    amazon_link = "https://a.co" 
+    # --- VARIÁVEIS TÉCNICAS ---
+    amazon_link = "https://www.amazon.com.br/Condicionado-Split-TCL-T-Pro-Inverter/dp/B0F3QCWL1Z" 
+    # LINK DA IMAGEM TOTALMENTE CORRIGIDO ABAIXO:
     image_url = "https://m.media-amazon.com"
     
     return f"""
@@ -26,9 +27,9 @@ def home():
             <h2 style="font-size: 1.2em; color: #2c3e50; margin-bottom: 15px; text-align: center;">Apresentamos o TCL 9000 BTUs ❄️</h2>
             
             <ul style="color: #34495e; line-height: 1.8; padding-left: 10px; list-style: none; margin-bottom: 20px;">
-                <li>✅ <b>Resfriamento Rápido:</b> Chega de esperar, o frio chega logo!</li>
-                <li>✅ <b>Economia Real:</b> Modelo Inverter que garante até 75% menos no consumo de energia 📉</li>
-                <li>✅ <b>Confiabilidade TCL:</b> 43kg de qualidade e robustez para durar anos 🏋️</li>
+                <li>✅ <b>Resfriamento Rápido:</b> Conforto imediato.</li>
+                <li>✅ <b>Economia Real:</b> Tecnologia Inverter (até 75% de economia) 📉</li>
+                <li>✅ <b>Confiabilidade TCL:</b> Wi-Fi integrado e Comando de Voz 🎙️</li>
             </ul>
 
             <div style="text-align: center; background-color: #ecf0f1; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
@@ -49,13 +50,14 @@ def home():
         </div>
 
         <script>
-            var countDate = new Date().getTime() + (1 * 45 * 60 * 1000); 
+            var countDate = new Date().getTime() + (45 * 60 * 1000); 
             function updateCountdown() {{
                 var now = new Date().getTime();
                 var gap = countDate - now;
                 var second = 1000, minute = second * 60, hour = minute * 60;
                 var h = Math.floor(gap / hour), m = Math.floor((gap % hour) / minute), s = Math.floor((gap % minute) / second);
                 document.getElementById('countdown').innerText = (h < 10 ? '0'+h : h) + ":" + (m < 10 ? '0'+m : m) + ":" + (s < 10 ? '0'+s : s);
+                if (gap < 0) document.getElementById('countdown').innerText = "00:00:00";
             }}
             setInterval(updateCountdown, 1000);
             updateCountdown();
