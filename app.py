@@ -5,9 +5,9 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # --- CONFIGURAÇÕES DO PRODUTO ---
-    amazon_link = "https://a.co/d/0cXXjFpC" 
+    amazon_link = "https://a.co" 
     
-    # LINK DA IMAGEM TOTALMENTE CORRIGIDO ABAIXO:
+    # ESTE É O LINK COMPLETO QUE ESTAVA A FALTAR:
     image_url = "https://m.media-amazon.com"
     
     # VALOR DO PRODUTO
