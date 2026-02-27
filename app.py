@@ -4,88 +4,70 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # --- CONFIGURAÇÕES DO PRODUTO ---
-    amazon_link = "https://a.co" 
-    image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
-    preco_produto = "R$ 1.199,00"
+    # --- PRODUTO 1: PC COMPLETO (O que já tem) ---
+    p1_link = "https://a.co" 
+    p1_img = "https://m.media-amazon.com"
+    p1_preco = "R$ 1.199,00"
+
+    # --- PRODUTO 2: NOVO PRODUTO (Substitua os dados abaixo pelo novo item) ---
+    p2_link = "COLE_AQUI_O_LINK_DO_NOVO_PRODUTO" 
+    p2_img = "COLE_AQUI_A_IMAGEM_DO_NOVO_PRODUTO"
+    p2_nome = "NOME DO SEGUNDO PRODUTO"
+    p2_preco = "R$ 00,00"
 
     return f"""
     <html>
     <head>
-        <title>Oferta: PC Completo i3 - Soluções Infoprodutos</title>
+        <title>Soluções Infoprodutos - Melhores Ofertas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="font-family: sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; margin: 0;">
-        <div style="background: white; padding: 30px; border-radius: 15px; display: block; margin: 10px auto; box-shadow: 0px 4px 15px rgba(0,0,0,0.1); max-width: 450px; text-align: left;">
-            
-            <div style="background: #e74c3c; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-bottom: 10px;">🔥 OFERTA DO DIA</div>
-            
-            <h1 style="color: #2c3e50; font-size: 1.3em; margin-bottom: 15px; text-align: center;">🖥️ PC Completo Intel i3 + Monitor 20"</h1>
-            
-            <div style="text-align: center;">
-                <img src="{image_url}" alt="Computador Completo" style="width: 100%; max-height: 280px; object-fit: contain; border-radius: 10px; margin-bottom: 15px;">
-            </div>
-
-            <!-- CRONÓMETRO DIÁRIO -->
-            <div style="text-align: center; margin-bottom: 20px; color: #e67e22; font-weight: bold;">
-                <p style="font-size: 0.8em; margin: 0; text-transform: uppercase;">Esta oferta expira em:</p>
-                <div id="timer" style="font-size: 1.8em; letter-spacing: 2px; font-family: monospace;">00:00:00</div>
-            </div>
-
-            <div style="text-align: center; margin-bottom: 20px; background: #fff9e6; padding: 15px; border-radius: 10px; border: 1px dashed #ff9900;">
-                <span style="font-size: 0.9em; color: #7f8c8d; text-decoration: line-through;">De: R$ 1.499,00</span><br>
-                <span style="font-size: 1.8em; font-weight: 800; color: #27ae60;">Por apenas {preco_produto}</span><br>
-                <span style="font-size: 0.8em; color: #34495e;">em até 10x sem juros na Amazon</span>
-            </div>
-
-            <p style="font-size: 0.9em; color: #34495e; line-height: 1.6;">
-                Ideal para <b>Home Office</b> e <b>Estudos</b>. Sistema pronto para uso com SSD e Wi-Fi.
-            </p>
-            
-            <ul style="font-size: 0.85em; color: #7f8c8d; padding-left: 20px; margin-bottom: 25px;">
-                <li>✅ Windows 10 Pro Instalado</li>
-                <li>✅ Teclado e Mouse Inclusos</li>
-                <li>✅ Monitor LED de Alta Definição</li>
-            </ul>
-
-            <div style="text-align: center;">
-                <a href="{amazon_link}" target="_blank" style="text-decoration: none;">
-                    <button style="background-color: #ff9900; color: #111; border: none; padding: 20px; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; width: 100%; box-shadow: 0px 4px 0px #cc7a00;">
-                        QUERO COMPRAR NA AMAZON ➔
-                    </button>
-                </a>
-                <p style="margin-top: 25px; font-size: 0.7em; color: #bdc3c7;">
-                    © 2026 Soluções Infoprodutos Digitais | Preço verificado na Amazon.br
-                </p>
-            </div>
+    <body style="font-family: sans-serif; text-align: center; padding: 10px; background-color: #f4f4f4; margin: 0;">
+        
+        <h1 style="color: #2c3e50; margin: 20px 0; font-size: 1.4em;">🚀 OFERTAS DO DIA</h1>
+        
+        <!-- CRONÓMETRO GERAL DE URGÊNCIA -->
+        <div style="background: #e67e22; color: white; padding: 10px; font-weight: bold; margin-bottom: 20px; border-radius: 10px; display: inline-block;">
+            As ofertas terminam em: <span id="timer">00:00:00</span>
         </div>
+
+        <!-- CARTÃO DO PRODUTO 1 (PC i3) -->
+        <div style="background: white; padding: 25px; border-radius: 15px; margin: 0 auto 20px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1); max-width: 400px; text-align: left;">
+            <h2 style="font-size: 1.1em; color: #2c3e50; text-align: center;">🖥️ PC Completo Intel i3 + Monitor 20"</h2>
+            <center><img src="{p1_img}" style="width: 100%; max-height: 200px; object-fit: contain; margin: 15px 0;"></center>
+            <div style="text-align: center; background: #fff9e6; padding: 10px; border-radius: 8px; border: 1px dashed #ff9900; margin-bottom: 15px;">
+                <span style="font-size: 1.4em; font-weight: 800; color: #27ae60;">{p1_preco}</span>
+            </div>
+            <a href="{p1_link}" target="_blank" style="text-decoration: none;">
+                <button style="background-color: #ff9900; color: #111; border: none; padding: 15px; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: bold; width: 100%;">VER NA AMAZON ➔</button>
+            </a>
+        </div>
+
+        <!-- CARTÃO DO PRODUTO 2 (NOVO) -->
+        <div style="background: white; padding: 25px; border-radius: 15px; margin: 0 auto 40px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1); max-width: 400px; text-align: left;">
+            <h2 style="font-size: 1.1em; color: #2c3e50; text-align: center;">🎁 {p2_nome}</h2>
+            <center><img src="{p2_img}" style="width: 100%; max-height: 200px; object-fit: contain; margin: 15px 0;"></center>
+            <div style="text-align: center; background: #fff9e6; padding: 10px; border-radius: 8px; border: 1px dashed #ff9900; margin-bottom: 15px;">
+                <span style="font-size: 1.4em; font-weight: 800; color: #27ae60;">{p2_preco}</span>
+            </div>
+            <a href="{p2_link}" target="_blank" style="text-decoration: none;">
+                <button style="background-color: #ff9900; color: #111; border: none; padding: 15px; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: bold; width: 100%;">VER NA AMAZON ➔</button>
+            </a>
+        </div>
+
+        <p style="font-size: 0.7em; color: #bdc3c7; padding-bottom: 20px;">© 2026 Soluções Infoprodutos Digitais</p>
 
         <script>
             function startTimer() {{
                 const now = new Date();
-                const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-                
+                const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
                 function update() {{
-                    const currentTime = new Date();
-                    const diff = endOfDay - currentTime;
-                    
-                    if (diff <= 0) {{
-                        document.getElementById('timer').innerHTML = "00:00:00";
-                        return;
-                    }}
-                    
-                    const h = Math.floor(diff / 3600000);
-                    const m = Math.floor((diff % 3600000) / 60000);
-                    const s = Math.floor((gap = diff % 60000) / 1000);
-                    
-                    document.getElementById('timer').innerHTML = 
-                        (h < 10 ? "0" + h : h) + ":" + 
-                        (m < 10 ? "0" + m : m) + ":" + 
-                        (s < 10 ? "0" + s : s);
+                    const diff = end - new Date();
+                    if (diff <= 0) return;
+                    const h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000);
+                    document.getElementById('timer').innerHTML = (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
                 }}
-                update();
-                setInterval(update, 1000);
+                update(); setInterval(update, 1000);
             }}
             startTimer();
         </script>
