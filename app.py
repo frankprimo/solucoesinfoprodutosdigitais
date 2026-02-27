@@ -30,7 +30,7 @@ def home():
             <!-- CRONÓMETRO DIÁRIO -->
             <div style="text-align: center; margin-bottom: 20px; color: #e67e22; font-weight: bold;">
                 <p style="font-size: 0.8em; margin: 0; text-transform: uppercase;">Esta oferta expira em:</p>
-                <div id="timer" style="font-size: 1.5em; letter-spacing: 2px;">00:00:00</div>
+                <div id="timer" style="font-size: 1.8em; letter-spacing: 2px; font-family: monospace;">00:00:00</div>
             </div>
 
             <div style="text-align: center; margin-bottom: 20px; background: #fff9e6; padding: 15px; border-radius: 10px; border: 1px dashed #ff9900;">
@@ -71,13 +71,13 @@ def home():
                     const diff = endOfDay - currentTime;
                     
                     if (diff <= 0) {{
-                        document.getElementById('timer').innerHTML = "EXPIRADO";
+                        document.getElementById('timer').innerHTML = "00:00:00";
                         return;
                     }}
                     
                     const h = Math.floor(diff / 3600000);
                     const m = Math.floor((diff % 3600000) / 60000);
-                    const s = Math.floor((diff % 60000) / 1000);
+                    const s = Math.floor((gap = diff % 60000) / 1000);
                     
                     document.getElementById('timer').innerHTML = 
                         (h < 10 ? "0" + h : h) + ":" + 
