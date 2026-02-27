@@ -5,13 +5,8 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # --- CONFIGURAÇÕES DO PRODUTO ---
-    # Seu link de afiliado Amazon
     amazon_link = "https://a.co" 
-    
-    # LINK DA IMAGEM ATUALIZADO (LINK DIRETO DA AMAZON)
     image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
-    
-    # VALOR DO PRODUTO
     preco_produto = "R$ 1.199,00"
 
     return f"""
@@ -30,6 +25,12 @@ def home():
             
             <div style="text-align: center;">
                 <img src="{image_url}" alt="Computador Completo" style="width: 100%; max-height: 280px; object-fit: contain; border-radius: 10px; margin-bottom: 15px;">
+            </div>
+
+            <!-- CRONÓMETRO DIÁRIO -->
+            <div style="text-align: center; margin-bottom: 20px; color: #e67e22; font-weight: bold;">
+                <p style="font-size: 0.8em; margin: 0; text-transform: uppercase;">Esta oferta expira em:</p>
+                <div id="timer" style="font-size: 1.5em; letter-spacing: 2px;">00:00:00</div>
             </div>
 
             <div style="text-align: center; margin-bottom: 20px; background: #fff9e6; padding: 15px; border-radius: 10px; border: 1px dashed #ff9900;">
@@ -59,6 +60,35 @@ def home():
                 </p>
             </div>
         </div>
+
+        <script>
+            function startTimer() {{
+                const now = new Date();
+                const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+                
+                function update() {{
+                    const currentTime = new Date();
+                    const diff = endOfDay - currentTime;
+                    
+                    if (diff <= 0) {{
+                        document.getElementById('timer').innerHTML = "EXPIRADO";
+                        return;
+                    }}
+                    
+                    const h = Math.floor(diff / 3600000);
+                    const m = Math.floor((diff % 3600000) / 60000);
+                    const s = Math.floor((diff % 60000) / 1000);
+                    
+                    document.getElementById('timer').innerHTML = 
+                        (h < 10 ? "0" + h : h) + ":" + 
+                        (m < 10 ? "0" + m : m) + ":" + 
+                        (s < 10 ? "0" + s : s);
+                }}
+                update();
+                setInterval(update, 1000);
+            }}
+            startTimer();
+        </script>
     </body>
     </html>
     """
