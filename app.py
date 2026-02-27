@@ -6,11 +6,13 @@ app = Flask(__name__)
 def home():
     # --- PRODUTO 1: PC COMPLETO ---
     p1_link = "https://a.co" 
+    # LINK COMPLETO DA IMAGEM ABAIXO:
     p1_img = "https://m.media-amazon.com"
     p1_preco = "R$ 1.199,00"
 
     # --- PRODUTO 2: NOTEBOOK LENOVO ---
     p2_link = "https://a.co" 
+    # LINK COMPLETO DA IMAGEM ABAIXO:
     p2_img = "https://m.media-amazon.com"
     p2_nome = "Notebook Lenovo IdeaPad 1 Core i3 8GB 256GB SSD"
     p2_preco = "R$ 2.696,07"
