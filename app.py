@@ -4,92 +4,91 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # --- CONFIGURAÇÕES DOS PRODUTOS (LINKS ATUALIZADOS) ---
-    p1_link = "https://amzn.to" 
-    p1_img = "https://m.media-amazon.com"
-    
-    p2_link = "https://amzn.to" 
-    p2_img = "https://m.media-amazon.com"
+    # --- CONFIGURAÇÕES DO PRODUTO (VALORES REAIS) ---
+    # Seu link de afiliado Amazon oficial:
+    amazon_link = "https://a.co" 
+    # Link da imagem oficial (corrigido para exibir no site):
+    image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
+    # Valor atualizado:
+    preco_produto = "R$ 1.199,00"
 
     return f"""
     <html>
     <head>
-        <title>Ofertas Soluções Infoprodutos</title>
+        <title>Oferta: PC Completo i3 - Soluções Infoprodutos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="font-family: sans-serif; text-align: center; padding: 10px; background-color: #f4f4f5; margin: 0;">
-        
-        <h1 style="color: #1a1a1a; margin: 25px 0; font-size: 1.5em; letter-spacing: -0.5px;">🚀 OFERTAS TECNOLÓGICAS DO DIA</h1>
-
-        <!-- CRONÓMETRO DE URGÊNCIA -->
-        <div style="background: #ef4444; color: white; padding: 12px 20px; border-radius: 50px; font-weight: bold; margin-bottom: 25px; display: inline-block; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);">
-            ⏱️ Ofertas expiram em: <span id="timer">00:00:00</span>
-        </div>
-
-        <!-- CARTÃO PRODUTO 1 -->
-        <div style="background: white; padding: 25px; border-radius: 20px; display: block; margin: 0 auto 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 420px; text-align: left; border: 1px solid #e5e7eb;">
-            <h2 style="font-size: 1.15em; color: #1f2937; text-align: center; margin-bottom: 20px;">🖥️ PC Completo Intel i3 + Monitor 20"</h2>
-            <div style="text-align: center;">
-                <img src="{p1_img}" style="width: 100%; max-height: 220px; object-fit: contain; margin-bottom: 20px;">
-            </div>
+    <body style="font-family: sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; margin: 0;">
+        <div style="background: white; padding: 30px; border-radius: 15px; display: block; margin: 10px auto; box-shadow: 0px 4px 15px rgba(0,0,0,0.1); max-width: 450px; text-align: left;">
             
-            <div style="background: #f9fafb; padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.9em; color: #4b5563; border: 1px solid #f3f4f6;">
-                <b style="color: #111827;">Por que escolher este modelo?</b>
-                <ul style="margin: 8px 0 0 0; padding-left: 20px; line-height: 1.6;">
-                    <li>Desempenho ágil com SSD incluso</li>
-                    <li>Ideal para tarefas de escritório e estudos</li>
-                    <li>Kit completo: Monitor, Teclado e Mouse</li>
-                    <li>Sistema Windows 10 pronto para usar</li>
-                </ul>
-            </div>
-
-            <a href="{p1_link}" target="_blank" style="text-decoration: none;">
-                <button style="background-color: #ff9900; color: #111; border: none; padding: 18px; border-radius: 12px; cursor: pointer; font-size: 1.1em; font-weight: 800; width: 100%; box-shadow: 0 4px 0 #cc7a00; transition: 0.2s;">
-                    VER PREÇO ATUALIZADO ➔
-                </button>
-            </a>
-        </div>
-
-        <!-- CARTÃO PRODUTO 2 -->
-        <div style="background: white; padding: 25px; border-radius: 20px; display: block; margin: 0 auto 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 420px; text-align: left; border: 1px solid #e5e7eb;">
-            <h2 style="font-size: 1.15em; color: #1f2937; text-align: center; margin-bottom: 20px;">💻 Notebook Lenovo IdeaPad 1</h2>
+            <div style="background: #e74c3c; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-bottom: 10px;">🔥 OFERTA DO DIA</div>
+            
+            <h1 style="color: #2c3e50; font-size: 1.3em; margin-bottom: 15px; text-align: center;">🖥️ PC Completo Intel i3 + Monitor 20"</h1>
+            
             <div style="text-align: center;">
-                <img src="{p2_img}" style="width: 100%; max-height: 220px; object-fit: contain; margin-bottom: 20px;">
+                <img src="{image_url}" alt="Computador Completo" style="width: 100%; max-height: 280px; object-fit: contain; border-radius: 10px; margin-bottom: 15px;">
             </div>
 
-            <div style="background: #f9fafb; padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.9em; color: #4b5563; border: 1px solid #f3f4f6;">
-                <b style="color: #111827;">Destaques técnicos:</b>
-                <ul style="margin: 8px 0 0 0; padding-left: 20px; line-height: 1.6;">
-                    <li>Processador Intel Core i3 de 13ª Geração</li>
-                    <li>8GB RAM + SSD NVMe de alta velocidade</li>
-                    <li>Ecrã antirreflexo de 15.6" polegadas</li>
-                    <li>Design fino e leve (Cloud Grey)</li>
-                </ul>
+            <!-- CRONÓMETRO DIÁRIO -->
+            <div style="text-align: center; margin-bottom: 20px; color: #e67e22; font-weight: bold;">
+                <p style="font-size: 0.8em; margin: 0; text-transform: uppercase;">Esta oferta expira em:</p>
+                <div id="timer" style="font-size: 1.8em; letter-spacing: 2px; font-family: monospace;">00:00:00</div>
             </div>
 
-            <a href="{p2_link}" target="_blank" style="text-decoration: none;">
-                <button style="background-color: #ff9900; color: #111; border: none; padding: 18px; border-radius: 12px; cursor: pointer; font-size: 1.1em; font-weight: 800; width: 100%; box-shadow: 0 4px 0 #cc7a00; transition: 0.2s;">
-                    VER PREÇO ATUALIZADO ➔
-                </button>
-            </a>
+            <div style="text-align: center; margin-bottom: 20px; background: #fff9e6; padding: 15px; border-radius: 10px; border: 1px dashed #ff9900;">
+                <span style="font-size: 0.9em; color: #7f8c8d; text-decoration: line-through;">De: R$ 1.499,00</span><br>
+                <span style="font-size: 1.8em; font-weight: 800; color: #27ae60;">Por apenas {preco_produto}</span><br>
+                <span style="font-size: 0.8em; color: #34495e;">em até 10x sem juros na Amazon</span>
+            </div>
+
+            <p style="font-size: 0.9em; color: #34495e; line-height: 1.6;">
+                Ideal para <b>Home Office</b> e <b>Estudos</b>. Sistema pronto para uso com SSD e Wi-Fi.
+            </p>
+            
+            <ul style="font-size: 0.85em; color: #7f8c8d; padding-left: 20px; margin-bottom: 25px;">
+                <li>✅ Windows 10 Pro Instalado</li>
+                <li>✅ Teclado e Mouse Inclusos</li>
+                <li>✅ Monitor LED de Alta Definição</li>
+            </ul>
+
+            <div style="text-align: center;">
+                <a href="{amazon_link}" target="_blank" style="text-decoration: none;">
+                    <button style="background-color: #ff9900; color: #111; border: none; padding: 20px; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; width: 100%; box-shadow: 0px 4px 0px #cc7a00;">
+                        QUERO COMPRAR NA AMAZON ➔
+                    </button>
+                </a>
+                <p style="margin-top: 25px; font-size: 0.7em; color: #bdc3c7;">
+                    © 2026 Soluções Infoprodutos Digitais | Preço verificado na Amazon.br
+                </p>
+            </div>
         </div>
-
-        <footer style="padding-bottom: 30px;">
-            <p style="font-size: 0.75em; color: #9ca3af;">© 2026 Soluções Infoprodutos Digitais<br>Ofertas verificadas na Amazon Brasil.</p>
-        </footer>
 
         <script>
             function startTimer() {{
                 const now = new Date();
-                const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+                const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+                
                 function update() {{
-                    const diff = end - new Date();
-                    if (diff <= 0) {{ document.getElementById('timer').innerHTML = "00:00:00"; return; }}
-                    const h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000);
-                    document.getElementById('timer').innerHTML = (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+                    const currentTime = new Date();
+                    const diff = endOfDay - currentTime;
+                    
+                    if (diff <= 0) {{
+                        document.getElementById('timer').innerHTML = "00:00:00";
+                        return;
+                    }}
+                    
+                    const h = Math.floor(diff / 3600000);
+                    const m = Math.floor((diff % 3600000) / 60000);
+                    const s = Math.floor((diff % 60000) / 1000);
+                    
+                    document.getElementById('timer').innerHTML = 
+                        (h < 10 ? "0" + h : h) + ":" + 
+                        (m < 10 ? "0" + m : m) + ":" + 
+                        (s < 10 ? "0" + s : s);
                 }}
-                update(); setInterval(update, 1000);
+                update();
+                setInterval(update, 1000);
             }}
             startTimer();
         </script>
@@ -99,3 +98,6 @@ def home():
 
 if __name__ == "__main__":
     app.run()
+
+
+
