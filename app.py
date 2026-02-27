@@ -8,7 +8,7 @@ def home():
     # Link atualizado com o produto que enviou
     amazon_link = "https://a.co/d/01eS6h8S" 
     
-    # Link da imagem oficial do PC Completo i3 na Amazon
+    # LINK DA IMAGEM CORRIGIDO ABAIXO:
     image_url = "https://m.media-amazon.com"
 
     return f"""
