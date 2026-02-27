@@ -4,9 +4,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # --- CONFIGURAÇÕES DO PRODUTO ---
+    # --- CONFIGURAÇÕES DO PRODUTO (VALORES REAIS) ---
+    # Seu link de afiliado Amazon oficial:
     amazon_link = "https://a.co" 
+    # Link da imagem oficial (corrigido para exibir no site):
     image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
+    # Valor atualizado:
     preco_produto = "R$ 1.199,00"
 
     return f"""
@@ -77,7 +80,7 @@ def home():
                     
                     const h = Math.floor(diff / 3600000);
                     const m = Math.floor((diff % 3600000) / 60000);
-                    const s = Math.floor((gap = diff % 60000) / 1000);
+                    const s = Math.floor((diff % 60000) / 1000);
                     
                     document.getElementById('timer').innerHTML = 
                         (h < 10 ? "0" + h : h) + ":" + 
