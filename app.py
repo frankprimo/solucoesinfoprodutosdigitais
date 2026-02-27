@@ -5,12 +5,12 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # --- PRODUTO 1: PC COMPLETO ---
-    p1_link = "https://amzn.to/4rDb9r0" 
+    p1_link = "https://amzn.to/4aOpkCA" 
     p1_img = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
     p1_preco = "R$ 1.199,00"
     
     # --- PRODUTO 2: NOTEBOOK LENOVO ---
-    p2_link = "https://amzn.to/4aURYSz" 
+    p2_link = "https://amzn.to/4qYpqNQ" 
     p2_img = "https://m.media-amazon.com/images/I/71v4hoMadIL._AC_SY355_.jpg"
     p2_preco = "R$ 2.696,07"
 
@@ -80,3 +80,4 @@ def home():
 
 if __name__ == "__main__":
     app.run()
+
