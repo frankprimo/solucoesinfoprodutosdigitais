@@ -5,10 +5,11 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # --- CONFIGURAÇÕES DO PRODUTO ---
+    # Seu link de afiliado Amazon
     amazon_link = "https://a.co" 
     
-    # ESTE É O LINK COMPLETO QUE ESTAVA A FALTAR:
-    image_url = "https://m.media-amazon.com"
+    # LINK DA IMAGEM ATUALIZADO (LINK DIRETO DA AMAZON)
+    image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
     
     # VALOR DO PRODUTO
     preco_produto = "R$ 1.199,00"
