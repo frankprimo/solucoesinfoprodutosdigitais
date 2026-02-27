@@ -7,41 +7,55 @@ def home():
     # --- CONFIGURAÇÕES DO PRODUTO ---
     amazon_link = "https://a.co/d/0cXXjFpC" 
     
-    # NOVO LINK DE IMAGEM (MAIS COMPATÍVEL)
+    # LINK DA IMAGEM CORRIGIDO (ESSENCIAL PARA APARECER NO SITE)
     image_url = "https://m.media-amazon.com"
+    
+    # VALOR DO PRODUTO (ATUALIZE CONFORME O SITE DA AMAZON)
+    preco_produto = "R$ 1.199,00"
 
     return f"""
     <html>
     <head>
-        <title>PC Completo i3 - Soluções Infoprodutos</title>
+        <title>Oferta: PC Completo i3 - Soluções Infoprodutos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body style="font-family: sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; margin: 0;">
         <div style="background: white; padding: 30px; border-radius: 15px; display: block; margin: 10px auto; box-shadow: 0px 4px 15px rgba(0,0,0,0.1); max-width: 450px; text-align: left;">
+            
+            <div style="background: #e74c3c; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-bottom: 10px;">🔥 OFERTA DO DIA</div>
+            
             <h1 style="color: #2c3e50; font-size: 1.3em; margin-bottom: 15px; text-align: center;">🖥️ PC Completo Intel i3 + Monitor 20"</h1>
             
             <div style="text-align: center;">
-                <!-- Link da imagem com parâmetro de segurança -->
-                <img src="{image_url}" alt="Computador Completo" style="width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px; margin-bottom: 20px;">
+                <img src="{image_url}" alt="Computador Completo" style="width: 100%; max-height: 280px; object-fit: contain; border-radius: 10px; margin-bottom: 15px;">
+            </div>
+
+            <!-- EXIBIÇÃO DO PREÇO -->
+            <div style="text-align: center; margin-bottom: 20px; background: #fff9e6; padding: 15px; border-radius: 10px; border: 1px dashed #ff9900;">
+                <span style="font-size: 0.9em; color: #7f8c8d; text-decoration: line-through;">De: R$ 1.499,00</span><br>
+                <span style="font-size: 1.8em; font-weight: 800; color: #27ae60;">Por apenas {preco_produto}</span><br>
+                <span style="font-size: 0.8em; color: #34495e;">em até 10x sem juros na Amazon</span>
             </div>
 
             <p style="font-size: 0.9em; color: #34495e; line-height: 1.6;">
-                Ideal para <b>Home Office</b> e <b>Estudos</b>. Equipado com SSD para inicialização ultrarrápida e Wi-Fi incluso.
+                Ideal para <b>Home Office</b> e <b>Estudos</b>. Sistema pronto para uso com SSD e Wi-Fi.
             </p>
-            <ul style="font-size: 0.85em; color: #7f8c8d; padding-left: 20px;">
+            
+            <ul style="font-size: 0.85em; color: #7f8c8d; padding-left: 20px; margin-bottom: 25px;">
                 <li>✅ Windows 10 Pro Instalado</li>
                 <li>✅ Teclado e Mouse Inclusos</li>
                 <li>✅ Monitor LED de Alta Definição</li>
             </ul>
-            <div style="text-align: center; margin-top: 25px;">
+
+            <div style="text-align: center;">
                 <a href="{amazon_link}" target="_blank" style="text-decoration: none;">
-                    <button style="background-color: #ff9900; color: #111; border: none; padding: 18px; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold; width: 100%; box-shadow: 0px 4px 0px #cc7a00;">
-                        VER PRODUTO NA AMAZON ➔
+                    <button style="background-color: #ff9900; color: #111; border: none; padding: 20px; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; width: 100%; box-shadow: 0px 4px 0px #cc7a00;">
+                        QUERO COMPRAR NA AMAZON ➔
                     </button>
                 </a>
-                <p style="margin-top: 30px; font-size: 0.7em; color: #bdc3c7;">
-                    © 2026 Soluções Infoprodutos Digitais | Oferta verificada na Amazon.br
+                <p style="margin-top: 25px; font-size: 0.7em; color: #bdc3c7;">
+                    © 2026 Soluções Infoprodutos Digitais | Preço sujeito a alteração.
                 </p>
             </div>
         </div>
