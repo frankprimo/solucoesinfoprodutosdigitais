@@ -5,105 +5,78 @@ app = Flask(__name__)
 @app.route("/")
 def home():
 
-    amazon_link = "https://a.co"
-    image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
-    preco_produto = "R$ 1.199,00"
+    produtos = [
 
-    html = f"""
-    <html>
-    <head>
-        <title>Oferta: PC Completo i3</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+        {
+            "nome": "PC Completo Intel i3 + Monitor 20",
+            "imagem": "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg",
+            "preco": "R$ 1.199,00",
+            "link": "https://a.co/seulink1"
+        },
 
-    <body style="font-family:sans-serif;text-align:center;background:#f4f4f4;padding:20px">
+        {
+            "nome": "Notebook Lenovo IdeaPad",
+            "imagem": "https://m.media-amazon.com/images/I/61Dw5Z8LzJL._AC_SL1000_.jpg",
+            "preco": "R$ 2.199,00",
+            "link": "https://a.co/seulink2"
+        },
 
-        <div style="background:white;padding:30px;border-radius:15px;
-        margin:auto;max-width:450px;box-shadow:0 4px 15px rgba(0,0,0,0.1)">
+        {
+            "nome": "Monitor LG 24 Polegadas",
+            "imagem": "https://m.media-amazon.com/images/I/71vFKBpKakL._AC_SL1500_.jpg",
+            "preco": "R$ 899,00",
+            "link": "https://a.co/seulink3"
+        }
 
-            <div style="background:#e74c3c;color:white;padding:5px 10px;
-            border-radius:5px;font-size:12px;font-weight:bold;display:inline-block">
-            🔥 OFERTA DO DIA
-            </div>
+    ]
 
-            <h2>🖥️ PC Completo Intel i3 + Monitor 20"</h2>
+    html_produtos = ""
 
-            <img src="{image_url}" style="width:100%;max-height:280px;
-            object-fit:contain;border-radius:10px">
+    for p in produtos:
 
-            <p style="margin-top:15px;color:#777">Esta oferta expira em</p>
+        html_produtos += f"""
+        <div style="background:white;padding:25px;margin:20px auto;
+        border-radius:15px;max-width:450px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1)">
 
-            <div id="timer" style="font-size:30px;font-weight:bold;color:#e67e22">
-            00:00:00
-            </div>
+        <h2 style="text-align:center">{p["nome"]}</h2>
 
-            <div style="background:#fff9e6;padding:15px;border-radius:10px;margin-top:15px">
+        <img src="{p["imagem"]}" 
+        style="width:100%;max-height:260px;object-fit:contain">
 
-                <span style="text-decoration:line-through;color:#888">
-                De: R$ 1.499,00
-                </span>
+        <h3 style="color:green;text-align:center">
+        {p["preco"]}
+        </h3>
 
-                <br>
+        <a href="{p["link"]}" target="_blank">
+        <button style="background:#ff9900;border:none;
+        padding:18px;width:100%;font-size:18px;
+        border-radius:8px;font-weight:bold">
 
-                <span style="font-size:28px;color:#27ae60;font-weight:bold">
-                {preco_produto}
-                </span>
+        VER NA AMAZON
 
-            </div>
-
-            <p>
-            Ideal para <b>Home Office</b> e <b>Estudos</b>
-            </p>
-
-            <a href="{amazon_link}" target="_blank">
-            <button style="background:#ff9900;border:none;padding:18px;
-            width:100%;font-size:18px;font-weight:bold;border-radius:8px;cursor:pointer">
-            QUERO COMPRAR NA AMAZON
-            </button>
-            </a>
+        </button>
+        </a>
 
         </div>
+        """
 
-<script>
+    return f"""
+    <html>
+    <head>
+    <title>Ofertas do Dia</title>
+    <meta charset="UTF-8">
+    </head>
 
-function startTimer(){{
+    <body style="font-family:sans-serif;background:#f4f4f4;text-align:center">
 
-const now = new Date();
-const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59);
+    <h1>🚀 OFERTAS TECNOLÓGICAS DO DIA</h1>
 
-function update(){{
-
-const diff = end - new Date();
-
-if(diff <= 0){{
-document.getElementById("timer").innerHTML="00:00:00";
-return;
-}}
-
-const h = Math.floor(diff/3600000);
-const m = Math.floor((diff%3600000)/60000);
-const s = Math.floor((diff%60000)/1000);
-
-document.getElementById("timer").innerHTML =
-(h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
-
-}}
-
-update();
-setInterval(update,1000);
-
-}}
-
-startTimer();
-
-</script>
+    {html_produtos}
 
     </body>
     </html>
     """
-
-    return html
 
 
 if __name__ == "__main__":
