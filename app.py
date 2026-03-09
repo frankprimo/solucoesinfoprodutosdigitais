@@ -27,12 +27,12 @@ def home():
             "preco": "R$ 899,00",
             "link": "https://a.co/seulink3"
         },
-        {
-    "nome": "Mouse Gamer Logitech",
-    "imagem": "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
-    "preco": "R$ 149,00",
-    "link": "https://a.co/seulink4"
-},
+         {
+            "nome": "Mouse Gamer Logitech",
+            "imagem": "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+            "preco": "R$ 149,00",
+            "link": "https://a.co/seulink4"
+        },
 
     ]
 
@@ -87,4 +87,5 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
