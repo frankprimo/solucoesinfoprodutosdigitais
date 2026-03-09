@@ -4,100 +4,118 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # --- CONFIGURAÇÕES DO PRODUTO (VALORES REAIS) ---
-    # Seu link de afiliado Amazon oficial:
-    amazon_link = "https://a.co" 
-    # Link da imagem oficial (corrigido para exibir no site):
-    image_url = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
-    # Valor atualizado:
+
+    # --- LINKS DOS PRODUTOS ---
+    p1_link = "https://amzn.to"
+    p1_img = "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg"
+
+    p2_link = "https://amzn.to"
+    p2_img = "https://m.media-amazon.com/images/I/61Dw5Z8LzJL._AC_SL1000_.jpg"
+
     preco_produto = "R$ 1.199,00"
 
     return f"""
     <html>
     <head>
-        <title>Oferta: PC Completo i3 - Soluções Infoprodutos</title>
+        <title>Ofertas Soluções Infoprodutos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="font-family: sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; margin: 0;">
-        <div style="background: white; padding: 30px; border-radius: 15px; display: block; margin: 10px auto; box-shadow: 0px 4px 15px rgba(0,0,0,0.1); max-width: 450px; text-align: left;">
-            
-            <div style="background: #e74c3c; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-bottom: 10px;">🔥 OFERTA DO DIA</div>
-            
-            <h1 style="color: #2c3e50; font-size: 1.3em; margin-bottom: 15px; text-align: center;">🖥️ PC Completo Intel i3 + Monitor 20"</h1>
-            
-            <div style="text-align: center;">
-                <img src="{image_url}" alt="Computador Completo" style="width: 100%; max-height: 280px; object-fit: contain; border-radius: 10px; margin-bottom: 15px;">
-            </div>
 
-            <!-- CRONÓMETRO DIÁRIO -->
-            <div style="text-align: center; margin-bottom: 20px; color: #e67e22; font-weight: bold;">
-                <p style="font-size: 0.8em; margin: 0; text-transform: uppercase;">Esta oferta expira em:</p>
-                <div id="timer" style="font-size: 1.8em; letter-spacing: 2px; font-family: monospace;">00:00:00</div>
-            </div>
+    <body style="font-family:sans-serif;text-align:center;padding:20px;background:#f4f4f5;margin:0;">
 
-            <div style="text-align: center; margin-bottom: 20px; background: #fff9e6; padding: 15px; border-radius: 10px; border: 1px dashed #ff9900;">
-                <span style="font-size: 0.9em; color: #7f8c8d; text-decoration: line-through;">De: R$ 1.499,00</span><br>
-                <span style="font-size: 1.8em; font-weight: 800; color: #27ae60;">Por apenas {preco_produto}</span><br>
-                <span style="font-size: 0.8em; color: #34495e;">em até 10x sem juros na Amazon</span>
-            </div>
+        <h1 style="color:#1a1a1a;margin-bottom:20px;">🚀 OFERTAS TECNOLÓGICAS DO DIA</h1>
 
-            <p style="font-size: 0.9em; color: #34495e; line-height: 1.6;">
-                Ideal para <b>Home Office</b> e <b>Estudos</b>. Sistema pronto para uso com SSD e Wi-Fi.
-            </p>
-            
-            <ul style="font-size: 0.85em; color: #7f8c8d; padding-left: 20px; margin-bottom: 25px;">
-                <li>✅ Windows 10 Pro Instalado</li>
-                <li>✅ Teclado e Mouse Inclusos</li>
-                <li>✅ Monitor LED de Alta Definição</li>
-            </ul>
-
-            <div style="text-align: center;">
-                <a href="{amazon_link}" target="_blank" style="text-decoration: none;">
-                    <button style="background-color: #ff9900; color: #111; border: none; padding: 20px; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; width: 100%; box-shadow: 0px 4px 0px #cc7a00;">
-                        QUERO COMPRAR NA AMAZON ➔
-                    </button>
-                </a>
-                <p style="margin-top: 25px; font-size: 0.7em; color: #bdc3c7;">
-                    © 2026 Soluções Infoprodutos Digitais | Preço verificado na Amazon.br
-                </p>
-            </div>
+        <div style="background:#ef4444;color:white;padding:10px 20px;border-radius:30px;font-weight:bold;margin-bottom:30px;display:inline-block;">
+            ⏱️ Ofertas expiram em: <span id="timer">00:00:00</span>
         </div>
 
-        <script>
-            function startTimer() {{
-                const now = new Date();
-                const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-                
-                function update() {{
-                    const currentTime = new Date();
-                    const diff = endOfDay - currentTime;
-                    
-                    if (diff <= 0) {{
-                        document.getElementById('timer').innerHTML = "00:00:00";
-                        return;
-                    }}
-                    
-                    const h = Math.floor(diff / 3600000);
-                    const m = Math.floor((diff % 3600000) / 60000);
-                    const s = Math.floor((diff % 60000) / 1000);
-                    
-                    document.getElementById('timer').innerHTML = 
-                        (h < 10 ? "0" + h : h) + ":" + 
-                        (m < 10 ? "0" + m : m) + ":" + 
-                        (s < 10 ? "0" + s : s);
-                }}
-                update();
-                setInterval(update, 1000);
-            }}
-            startTimer();
-        </script>
-    </body>
-    </html>
-    """
+
+        <!-- PRODUTO 1 -->
+        <div style="background:white;padding:25px;border-radius:15px;margin:auto;margin-bottom:30px;max-width:420px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+
+            <h2>🖥️ PC Completo Intel i3 + Monitor 20"</h2>
+
+            <img src="{p1_img}" style="width:100%;max-height:250px;object-fit:contain;margin-bottom:15px;">
+
+            <div style="background:#fff9e6;padding:15px;border-radius:10px;margin-bottom:15px;">
+                <span style="font-size:0.9em;text-decoration:line-through;color:#888;">De: R$ 1.499,00</span><br>
+                <span style="font-size:1.8em;font-weight:bold;color:#27ae60;">{preco_produto}</span>
+            </div>
+
+            <a href="{p1_link}" target="_blank">
+                <button style="background:#ff9900;border:none;padding:15px;width:100%;font-size:1.1em;font-weight:bold;border-radius:10px;cursor:pointer;">
+                    VER PREÇO NA AMAZON
+                </button>
+            </a>
+
+        </div>
+
+
+        <!-- PRODUTO 2 -->
+        <div style="background:white;padding:25px;border-radius:15px;margin:auto;margin-bottom:30px;max-width:420px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+
+            <h2>💻 Notebook Lenovo IdeaPad</h2>
+
+            <img src="{p2_img}" style="width:100%;max-height:250px;object-fit:contain;margin-bottom:15px;">
+
+            <p style="font-size:0.9em;color:#555;">
+            ✔ Processador Intel i3<br>
+            ✔ 8GB RAM<br>
+            ✔ SSD NVMe<br>
+            ✔ Tela 15.6"
+            </p>
+
+            <a href="{p2_link}" target="_blank">
+                <button style="background:#ff9900;border:none;padding:15px;width:100%;font-size:1.1em;font-weight:bold;border-radius:10px;cursor:pointer;">
+                    VER PREÇO NA AMAZON
+                </button>
+            </a>
+
+        </div>
+
+
+        <footer style="font-size:12px;color:#888;margin-top:20px;">
+        © 2026 Soluções Infoprodutos Digitais
+        </footer>
+
+
+<script>
+
+function startTimer() {{
+
+    const now = new Date();
+    const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+
+    function update() {{
+
+        const diff = end - new Date();
+
+        if(diff <= 0){{
+            document.getElementById("timer").innerHTML="00:00:00";
+            return;
+        }}
+
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById("timer").innerHTML =
+        (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+
+    }}
+
+    update();
+    setInterval(update,1000);
+}}
+
+startTimer();
+
+</script>
+
+</body>
+</html>
+"""
 
 if __name__ == "__main__":
-    app.run()
-
-
-
+    app.run(debug=True)
