@@ -138,6 +138,32 @@ def home():
 
     {html_produtos}
 
+    <div style="max-width:900px;margin:40px auto;padding:20px;
+    background:white;border-radius:10px;
+    font-size:14px;text-align:left;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1)">
+
+    <h3>ℹ️ Transparência e Informações</h3>
+
+    <p>
+    Este site participa de programas de afiliados. Isso significa que,
+    se você clicar em um link e comprar o produto, eu posso receber
+    uma pequena comissão. O preço é o mesmo para você.
+    </p>
+
+    <p>
+    <b>Cookies:</b> O prazo para contabilizar a comissão é de 24h a partir
+    do clique. Porém, se você adicionar o produto ao carrinho dentro
+    desse período, o prazo pode se estender para até 90 dias.
+    </p>
+
+    <p>
+    <b>Preços:</b> Os valores são dinâmicos e podem variar a qualquer
+    momento no site da Amazon.
+    </p>
+
+    </div>
+
     </body>
     </html>
     """
