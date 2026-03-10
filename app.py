@@ -10,8 +10,8 @@ def home():
         {
             "nome": "PC Completo Intel i3",
             "imagem": "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg",
-            "preco": "1.065,00",
-            "link": "https://amzn.to/40mOIdP.com"
+            "preco": "R$ 1.065,00",
+            "link": "https://amzn.to/40mOIdP"
         },
         {
             "nome": "Notebook Lenovo IdeaPad",
@@ -21,7 +21,7 @@ def home():
         },
         {
             "nome": "Monitor LG 24",
-            "imagem": "https://m.media-amazon.com/images/I/61hxA0+MEWL._AC_SY355_.jpg_.jpg",
+            "imagem": "https://m.media-amazon.com/images/I/61hxA0+MEWL._AC_SY355_.jpg",
             "preco": "R$ 500,00",
             "link": "https://amzn.to/4sCIVwN"
         },
@@ -69,11 +69,42 @@ def home():
     <head>
     <title>Ofertas do Dia</title>
     <meta charset="UTF-8">
+
+    <script>
+
+    // contador regressivo 24h
+    var tempo = 86400;
+
+    function atualizarRelogio() {{
+
+        var horas = Math.floor(tempo / 3600);
+        var minutos = Math.floor((tempo % 3600) / 60);
+        var segundos = tempo % 60;
+
+        document.getElementById("relogio").innerHTML =
+        horas + "h " + minutos + "m " + segundos + "s";
+
+        tempo--;
+
+        if (tempo < 0) {{
+            tempo = 86400;
+        }}
+    }}
+
+    setInterval(atualizarRelogio,1000);
+
+    </script>
+
     </head>
 
     <body style="font-family:sans-serif;background:#f4f4f4;text-align:center">
 
     <h1>🚀 OFERTAS TECNOLÓGICAS DO DIA</h1>
+
+    <h2 style="color:red">
+    ⏰ Oferta termina em:
+    <span id="relogio"></span>
+    </h2>
 
     {html_produtos}
 
@@ -85,6 +116,3 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
-
-
-
