@@ -11,7 +11,7 @@ def home():
             "nome": "PC Completo Intel i3",
             "imagem": "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg",
             "preco": "R$ 1.065,00",
-            "descricao": "Computador completo com monitor de 20 polegadas ideal para trabalho, estudo e internet.",
+            "descricao": "Computador completo ideal para trabalho e estudos.",
             "processador": "Intel Core i3",
             "memoria": "8GB RAM",
             "armazenamento": "SSD 240GB",
@@ -22,7 +22,7 @@ def home():
             "nome": "Notebook Lenovo IdeaPad",
             "imagem": "https://m.media-amazon.com/images/I/71uv+p19nTL._AC_SY355_.jpg",
             "preco": "R$ 2.789,00",
-            "descricao": "Notebook Lenovo IdeaPad ideal para trabalho, estudo e uso diário com ótimo desempenho e design moderno.",
+            "descricao": "Notebook ideal para trabalho, estudo e uso diário.",
             "processador": "Intel Core i5",
             "memoria": "8GB RAM",
             "armazenamento": "SSD 256GB",
@@ -34,9 +34,9 @@ def home():
             "nome": "Monitor LG 24",
             "imagem": "https://m.media-amazon.com/images/I/61hxA0+MEWL._AC_SY355_.jpg",
             "preco": "R$ 500,00",
-            "descricao": "Monitor LG de 24 polegadas com resolução Full HD ideal para escritório e entretenimento.",
+            "descricao": "Monitor Full HD ideal para escritório e entretenimento.",
             "tela": "24 polegadas",
-            "resolucao": "1920 x 1080",
+            "resolucao": "1920x1080",
             "taxa": "75Hz",
             "conexao": "HDMI / VGA",
             "link": "https://amzn.to/4sCIVwN"
@@ -45,8 +45,8 @@ def home():
             "nome": "Mouse Gamer Logitech G305",
             "imagem": "https://m.media-amazon.com/images/I/51sg9BLSMTL._AC_SY355_.jpg",
             "preco": "R$ 169,00",
-            "descricao": "Mouse gamer sem fio Logitech com sensor de alta precisão ideal para jogos competitivos.",
-            "dpi": "12.000 DPI",
+            "descricao": "Mouse gamer sem fio com sensor de alta precisão.",
+            "dpi": "12000 DPI",
             "botoes": "6 botões programáveis",
             "bateria": "até 250 horas",
             "conexao": "LIGHTSPEED sem fio",
@@ -61,34 +61,58 @@ def home():
         info_extra = ""
 
         for chave, valor in p.items():
-            if chave not in ["nome","imagem","preco","link"]:
-                info_extra += f"<b>{chave.capitalize()}:</b> {valor}<br>"
+            if chave not in ["nome", "imagem", "preco", "link"]:
+                titulo = chave.replace("_", " ").capitalize()
+                info_extra += f"• <b>{titulo}:</b> {valor}<br>"
 
         html_produtos += f"""
-        <div style="background:white;padding:25px;margin:20px auto;
-        border-radius:15px;max-width:450px;
-        box-shadow:0 4px 15px rgba(0,0,0,0.1)">
 
-        <h2 style="text-align:center">{p["nome"]}</h2>
+        <div style="
+        background:white;
+        padding:20px;
+        border-radius:12px;
+        width:260px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        position:relative;
+        ">
+
+        <div style="
+        position:absolute;
+        top:10px;
+        left:10px;
+        background:red;
+        color:white;
+        padding:5px 10px;
+        font-size:12px;
+        border-radius:5px;
+        ">
+        OFERTA
+        </div>
+
+        <h3 style="text-align:center">{p["nome"]}</h3>
 
         <img src="{p["imagem"]}" 
-        style="width:100%;max-height:260px;object-fit:contain">
+        style="width:100%;height:180px;object-fit:contain">
 
-        <h3 style="color:green;text-align:center">
+        <h2 style="color:green;text-align:center">
         {p["preco"]}
-        </h3>
+        </h2>
 
-        <p style="text-align:left;font-size:14px">
+        <p style="font-size:13px;text-align:left">
         {info_extra}
         </p>
 
         <a href="{p["link"]}" target="_blank">
-        <button style="background:#ff9900;border:none;
-        padding:18px;width:100%;font-size:18px;
-        border-radius:8px;font-weight:bold">
-
+        <button style="
+        background:#ff9900;
+        border:none;
+        padding:12px;
+        width:100%;
+        font-weight:bold;
+        border-radius:8px;
+        cursor:pointer;
+        ">
         VER NA AMAZON
-
         </button>
         </a>
 
@@ -122,26 +146,45 @@ def home():
     }}
 
     setInterval(atualizarRelogio,1000);
+    atualizarRelogio();
 
     </script>
 
     </head>
 
-    <body style="font-family:sans-serif;background:#f4f4f4;text-align:center">
+    <body style="font-family:sans-serif;background:#f4f4f4;margin:0">
 
-    <h1>🚀 OFERTAS TECNOLÓGICAS DO DIA</h1>
+    <h1 style="text-align:center;padding:20px">
+    🚀 OFERTAS TECNOLÓGICAS DO DIA
+    </h1>
 
-    <h2 style="color:red">
-    ⏰ Oferta termina em:
-    <span id="relogio"></span>
+    <h2 style="color:red;text-align:center">
+    ⏰ Oferta termina em: <span id="relogio"></span>
     </h2>
+
+    <div style="
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    ">
 
     {html_produtos}
 
-    <div style="max-width:900px;margin:40px auto;padding:20px;
-    background:white;border-radius:10px;
-    font-size:14px;text-align:left;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1)">
+    </div>
+
+    <div style="
+    max-width:900px;
+    margin:40px auto;
+    padding:20px;
+    background:white;
+    border-radius:10px;
+    font-size:14px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    ">
 
     <h3>ℹ️ Transparência e Informações</h3>
 
@@ -152,14 +195,13 @@ def home():
     </p>
 
     <p>
-    <b>Cookies:</b> O prazo para garantir de preço e contabilizar a comissão é de 24h a partir
-    do clique. Porém, se você adicionar o produto ao carrinho dentro
-    desse período, voce tera prazo de até 90 dias para decidir sua compra.
+    <b>Cookies:</b> O prazo para contabilizar a comissão é de 24 horas após o clique.
+    Se o produto for adicionado ao carrinho nesse período, o prazo pode se estender
+    por até 90 dias para finalizar a compra.
     </p>
 
     <p>
-    <b>Preços:</b> Os valores são dinâmicos e podem variar a qualquer
-    momento no site da Amazon.
+    <b>Preços:</b> Os valores podem variar a qualquer momento no site da Amazon.
     </p>
 
     </div>
@@ -170,6 +212,5 @@ def home():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
-
+    port = int(os.environ.get("PORT",10000))
+    app.run(host="0.0.0.0",port=port)
