@@ -26,7 +26,7 @@ def home():
             "processador": "Intel Core i5",
             "memoria": "8GB RAM",
             "armazenamento": "SSD 256GB",
-            "tela": "15.6 polegadas Full HD",
+            "tela": "15.6 Full HD",
             "sistema": "Windows 11",
             "link": "https://amzn.to/4lnhLb1"
         },
@@ -34,18 +34,22 @@ def home():
             "nome": "Monitor LG 24",
             "imagem": "https://m.media-amazon.com/images/I/61hxA0+MEWL._AC_SY355_.jpg",
             "preco": "R$ 500,00",
-            "descricao": "Monitor LG de 24 polegadas ideal para escritório, estudos e entretenimento, com imagem nítida e design moderno.",
-            "tela": "24 polegadas Full HD",
+            "descricao": "Monitor LG de 24 polegadas com resolução Full HD ideal para escritório e entretenimento.",
+            "tela": "24 polegadas",
             "resolucao": "1920 x 1080",
             "taxa": "75Hz",
-            "conexao": "HDMI e VGA",
-            "tecnologia": "Painel LED IPS",
+            "conexao": "HDMI / VGA",
             "link": "https://amzn.to/4sCIVwN"
         },
         {
-            "nome": "Mouse Gamer Logitech",
+            "nome": "Mouse Gamer Logitech G305",
             "imagem": "https://m.media-amazon.com/images/I/51sg9BLSMTL._AC_SY355_.jpg",
             "preco": "R$ 169,00",
+            "descricao": "Mouse gamer sem fio Logitech com sensor de alta precisão ideal para jogos competitivos.",
+            "dpi": "12.000 DPI",
+            "botoes": "6 botões programáveis",
+            "bateria": "até 250 horas",
+            "conexao": "LIGHTSPEED sem fio",
             "link": "https://amzn.to/4uidzx0"
         }
     ]
@@ -53,6 +57,12 @@ def home():
     html_produtos = ""
 
     for p in produtos:
+
+        info_extra = ""
+
+        for chave, valor in p.items():
+            if chave not in ["nome","imagem","preco","link"]:
+                info_extra += f"<b>{chave.capitalize()}:</b> {valor}<br>"
 
         html_produtos += f"""
         <div style="background:white;padding:25px;margin:20px auto;
@@ -67,6 +77,10 @@ def home():
         <h3 style="color:green;text-align:center">
         {p["preco"]}
         </h3>
+
+        <p style="text-align:left;font-size:14px">
+        {info_extra}
+        </p>
 
         <a href="{p["link"]}" target="_blank">
         <button style="background:#ff9900;border:none;
@@ -89,7 +103,6 @@ def home():
 
     <script>
 
-    // contador regressivo 24h
     var tempo = 86400;
 
     function atualizarRelogio() {{
@@ -133,4 +146,3 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
-
