@@ -10,20 +10,20 @@ def home():
         {
             "nome": "PC Completo Intel i3",
             "imagem": "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg",
-            "preco": "R$ 1.199,00",
-            "link": "https://amazon.com"
+            "preco": "1.065,00",
+            "link": "https://amzn.to/40mOIdP.com"
         },
         {
             "nome": "Notebook Lenovo IdeaPad",
-            "imagem": "https://m.media-amazon.com/images/I/61Dw5Z8LzJL._AC_SL1000_.jpg",
-            "preco": "R$ 2.199,00",
-            "link": "https://amazon.com"
+            "imagem": "https://m.media-amazon.com/images/I/71uv+p19nTL._AC_SY355_.jpg",
+            "preco": "R$ 2.789,00",
+            "link": "https://amzn.to/4lnhLb1"
         },
         {
             "nome": "Monitor LG 24",
-            "imagem": "https://m.media-amazon.com/images/I/71vFKBpKakL._AC_SL1500_.jpg",
-            "preco": "R$ 899,00",
-            "link": "https://amazon.com"
+            "imagem": "https://m.media-amazon.com/images/I/61hxA0+MEWL._AC_SY355_.jpg_.jpg",
+            "preco": "R$ 500,00",
+            "link": "https://amzn.to/4sCIVwN"
         },
         {
             "nome": "Mouse Gamer Logitech",
@@ -85,5 +85,6 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 
