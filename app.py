@@ -11,18 +11,35 @@ def home():
             "nome": "PC Completo Intel i3",
             "imagem": "https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg",
             "preco": "R$ 1.065,00",
+            "descricao": "Computador completo com monitor de 20 polegadas ideal para trabalho, estudo e internet.",
+            "processador": "Intel Core i3",
+            "memoria": "8GB RAM",
+            "armazenamento": "SSD 240GB",
+            "sistema": "Windows 10",
             "link": "https://amzn.to/40mOIdP"
         },
         {
             "nome": "Notebook Lenovo IdeaPad",
             "imagem": "https://m.media-amazon.com/images/I/71uv+p19nTL._AC_SY355_.jpg",
             "preco": "R$ 2.789,00",
+            "descricao": "Notebook Lenovo IdeaPad ideal para trabalho, estudo e uso diário com ótimo desempenho e design moderno.",
+            "processador": "Intel Core i5",
+            "memoria": "8GB RAM",
+            "armazenamento": "SSD 256GB",
+            "tela": "15.6 polegadas Full HD",
+            "sistema": "Windows 11",
             "link": "https://amzn.to/4lnhLb1"
         },
         {
             "nome": "Monitor LG 24",
             "imagem": "https://m.media-amazon.com/images/I/61hxA0+MEWL._AC_SY355_.jpg",
             "preco": "R$ 500,00",
+            "descricao": "Monitor LG de 24 polegadas ideal para escritório, estudos e entretenimento, com imagem nítida e design moderno.",
+            "tela": "24 polegadas Full HD",
+            "resolucao": "1920 x 1080",
+            "taxa": "75Hz",
+            "conexao": "HDMI e VGA",
+            "tecnologia": "Painel LED IPS",
             "link": "https://amzn.to/4sCIVwN"
         },
         {
@@ -116,3 +133,4 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
