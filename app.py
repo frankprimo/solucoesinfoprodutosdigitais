@@ -152,9 +152,9 @@ def home():
     </p>
 
     <p>
-    <b>Cookies:</b> O prazo para contabilizar a comissão é de 24h a partir
+    <b>Cookies:</b> O prazo para garantir de preço e contabilizar a comissão é de 24h a partir
     do clique. Porém, se você adicionar o produto ao carrinho dentro
-    desse período, o prazo pode se estender para até 90 dias.
+    desse período, voce tera prazo de até 90 dias para decidir sua compra.
     </p>
 
     <p>
@@ -172,3 +172,4 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
