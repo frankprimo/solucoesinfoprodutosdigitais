@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
@@ -35,6 +36,7 @@ def home():
     html_produtos = ""
 
     for p in produtos:
+
         html_produtos += f"""
         <div style="background:white;padding:25px;margin:20px auto;
         border-radius:15px;max-width:450px;
@@ -42,15 +44,20 @@ def home():
 
         <h2 style="text-align:center">{p["nome"]}</h2>
 
-        <img src="{p["imagem"]}" style="width:100%;max-height:260px;object-fit:contain">
+        <img src="{p["imagem"]}" 
+        style="width:100%;max-height:260px;object-fit:contain">
 
-        <h3 style="color:green;text-align:center">{p["preco"]}</h3>
+        <h3 style="color:green;text-align:center">
+        {p["preco"]}
+        </h3>
 
         <a href="{p["link"]}" target="_blank">
         <button style="background:#ff9900;border:none;
         padding:18px;width:100%;font-size:18px;
         border-radius:8px;font-weight:bold">
+
         VER NA AMAZON
+
         </button>
         </a>
 
@@ -74,5 +81,7 @@ def home():
     </html>
     """
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
