@@ -27,9 +27,9 @@ def home():
         },
         {
             "nome": "Mouse Gamer Logitech",
-            "imagem": "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
-            "preco": "R$ 149,00",
-            "link": "https://amazon.com"
+            "imagem": "https://m.media-amazon.com/images/I/51sg9BLSMTL._AC_SL1500_.jpg",
+            "preco": "R$ 169,00",
+            "link": "https://amzn.to/4uidzx0"
         }
     ]
 
@@ -85,3 +85,4 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
