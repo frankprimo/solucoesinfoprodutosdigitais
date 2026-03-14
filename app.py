@@ -60,13 +60,13 @@ def home():
 
         html_produtos += f"""
         <div class="card">
-            <span class="tag">OFERTA</span>
-            <h3>{p["nome"]}</h3>
+            <div class="tag">🔥 TOP OFERTA</div>
             <img src="{p["imagem"]}">
+            <h3>{p["nome"]}</h3>
             <div class="preco">{p["preco"]}</div>
             <ul>{info}</ul>
             <a href="{p["link"]}" target="_blank">
-                <button>🛒 Ver na Amazon</button>
+                <button>🛒 Comprar na Amazon</button>
             </a>
         </div>
         """
@@ -74,48 +74,175 @@ def home():
     return f"""
 <html>
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ofertas Tecnológicas</title>
+
 <style>
-body {{ font-family: Arial; background:#f4f4f4; margin:0; }}
-header {{ background:#111; color:white; padding:25px; text-align:center; }}
-.timer {{ text-align:center; font-size:20px; color:red; margin-top:10px; }}
-.container {{ display:flex; flex-wrap:wrap; justify-content:center; gap:25px; padding:30px; max-width:1200px; margin:auto; }}
-.card {{ background:white; width:260px; padding:20px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); position:relative; text-align:center; }}
-.card img {{ width:100%; height:170px; object-fit:contain; }}
-.card ul {{ text-align:left; font-size:13px; }}
-.preco {{ color:green; font-size:22px; font-weight:bold; margin:10px; }}
-button {{ background:#ff9900; border:none; padding:12px; width:100%; border-radius:8px; font-weight:bold; cursor:pointer; }}
-button:hover {{ background:#e68a00; }}
-.tag {{ position:absolute; top:10px; left:10px; background:red; color:white; font-size:12px; padding:5px 10px; border-radius:6px; }}
-.info {{ max-width:900px; margin:40px auto; background:white; padding:25px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }}
-</style>
-<script>
-var tempo = 86400;
-function atualizar(){{
-  var h = Math.floor(tempo/3600);
-  var m = Math.floor((tempo%3600)/60);
-  var s = tempo%60;
-  document.getElementById("timer").innerHTML = h+"h "+m+"m "+s+"s";
-  tempo--;
-  if(tempo < 0) tempo = 86400;
+
+body {{
+font-family: Arial;
+background:#f2f2f2;
+margin:0;
 }}
+
+header {{
+background: linear-gradient(90deg,#000,#222);
+color:white;
+padding:30px;
+text-align:center;
+}}
+
+.banner {{
+background:#ff9900;
+color:black;
+padding:10px;
+font-weight:bold;
+}}
+
+.timer {{
+font-size:22px;
+color:#ff4444;
+margin-top:10px;
+}}
+
+.container {{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:40px;
+max-width:1200px;
+margin:auto;
+}}
+
+.card {{
+background:white;
+width:260px;
+border-radius:12px;
+padding:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+text-align:center;
+transition:0.3s;
+position:relative;
+}}
+
+.card:hover {{
+transform:translateY(-10px);
+}}
+
+.card img {{
+width:100%;
+height:170px;
+object-fit:contain;
+}}
+
+.card ul {{
+text-align:left;
+font-size:13px;
+}}
+
+.preco {{
+color:green;
+font-size:24px;
+font-weight:bold;
+margin:10px;
+}}
+
+button {{
+background:#ff9900;
+border:none;
+padding:14px;
+width:100%;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+font-size:15px;
+}}
+
+button:hover {{
+background:#e68a00;
+}}
+
+.tag {{
+position:absolute;
+top:10px;
+left:10px;
+background:red;
+color:white;
+font-size:12px;
+padding:5px 10px;
+border-radius:6px;
+}}
+
+.info {{
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:25px;
+border-radius:10px;
+}}
+
+</style>
+
+<script>
+
+var tempo = 86400;
+
+function atualizar(){{
+
+var h = Math.floor(tempo/3600);
+var m = Math.floor((tempo%3600)/60);
+var s = tempo%60;
+
+document.getElementById("timer").innerHTML = h+"h "+m+"m "+s+"s";
+
+tempo--;
+
+if(tempo < 0) tempo = 86400;
+
+}}
+
 setInterval(atualizar,1000);
+
 </script>
+
 </head>
+
 <body>
+
 <header>
-<h1>🚀 OFERTAS TECNOLÓGICAS DO DIA</h1>
-<div class="timer">⏰ Oferta termina em: <span id="timer"></span></div>
-</header>
-<div class="container">{html_produtos}</div>
-<div class="info">
-<h3>ℹ️ Transparência</h3>
-<p>Este site participa de programas de afiliados da Amazon. Podemos receber comissão por compras feitas através dos links.</p>
-<p>O preço é o mesmo para você.</p>
-<p>Os preços podem variar diretamente no site da Amazon.</p>
+
+<h1>🚀 OFERTAS TECNOLÓGICAS</h1>
+
+<div class="banner">
+💻 Promoções selecionadas com desconto
 </div>
+
+<div class="timer">
+⏰ Oferta termina em: <span id="timer"></span>
+</div>
+
+</header>
+
+<div class="container">
+{html_produtos}
+</div>
+
+<div class="info">
+
+<h3>ℹ️ Transparência</h3>
+
+<p>Este site participa de programas de afiliados da Amazon.</p>
+
+<p>Podemos receber comissão por compras feitas através dos links.</p>
+
+<p>O preço é o mesmo para você.</p>
+
+</div>
+
 </body>
 </html>
 """
