@@ -1,54 +1,111 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
+import sqlite3
 import os
 
 app = Flask(__name__)
 
+# =========================
+# BANCO DE DADOS (SQLite)
+# =========================
+def init_db():
+    conn = sqlite3.connect("produtos.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS produtos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT,
+        categoria TEXT,
+        avaliacao TEXT,
+        imagem TEXT,
+        preco TEXT,
+        link TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+init_db()
+
+
+# =========================
+# HOME (LISTA PRODUTOS)
+# =========================
 @app.route("/")
 def home():
     busca = request.args.get("q", "").lower()
 
-    produtos = [
+    conn = sqlite3.connect("produtos.db")
+    cursor = conn.cursor()
 
-        {"nome":"PC Completo Intel i3","categoria":"Computador","avaliacao":"⭐⭐⭐⭐☆","imagem":"https://m.media-amazon.com/images/I/71T1e2NG20L._AC_SY355_.jpg","preco":"Só na AMAZON","processador":"Intel Core i3","memoria":"8GB RAM","armazenamento":"SSD 240GB","sistema":"Windows 10","link":"https://amzn.to/40mOIdP"},
+    cursor.execute("SELECT nome, categoria, avaliacao, imagem, preco, link FROM produtos")
+    rows = cursor.fetchall()
 
-        {"nome":"Notebook Lenovo IdeaPad","categoria":"Notebook","avaliacao":"⭐⭐⭐⭐⭐","imagem":"https://m.media-amazon.com/images/I/71uv+p19nTL._AC_SY355_.jpg","preco":"Só na AMAZON","processador":"Intel Core i5","memoria":"8GB RAM","armazenamento":"SSD 256GB","tela":"15.6 Full HD","sistema":"Windows 11","link":"https://amzn.to/4lnhLb1"},
+    conn.close()
 
-        {"nome":"Monitor LG 24","categoria":"Monitor","avaliacao":"⭐⭐⭐⭐☆","imagem":"https://m.media-amazon.com/images/I/61hxA0+MEWL._AC_SY355_.jpg","preco":"Só na AMAZON","tela":"24 polegadas","resolucao":"1920x1080","taxa":"75Hz","conexao":"HDMI / VGA","link":"https://amzn.to/4sCIVwN"},
+    produtos = []
 
-        {"nome":"Mouse Gamer Logitech G305","categoria":"Periférico","avaliacao":"⭐⭐⭐⭐⭐","imagem":"https://m.media-amazon.com/images/I/51sg9BLSMTL._AC_SY355_.jpg","preco":"Só na AMAZON","dpi":"12000 DPI","botoes":"6 programáveis","bateria":"até 250 horas","conexao":"LIGHTSPEED sem fio","link":"https://amzn.to/4uidzx0"},
+    for r in rows:
+        p = {
+            "nome": r[0],
+            "categoria": r[1],
+            "avaliacao": r[2],
+            "imagem": r[3],
+            "preco": r[4],
+            "link": r[5]
+        }
 
-        {"nome":"Teclado Gamer Redragon Kumara","categoria":"Periférico","avaliacao":"⭐⭐⭐⭐⭐","imagem":"https://m.media-amazon.com/images/I/61Z9sR8i1lL._AC_SY355_.jpg","preco":"Só na AMAZON","switch":"Outemu Blue","iluminacao":"LED Vermelho","conexao":"USB","link":"https://amzn.to/exemplo1"},
-
-        {"nome":"Headset Gamer HyperX Cloud Stinger","categoria":"Áudio","avaliacao":"⭐⭐⭐⭐⭐","imagem":"https://m.media-amazon.com/images/I/61iYJk3E6sL._AC_SY355_.jpg","preco":"Só na AMAZON","driver":"50mm","microfone":"Com cancelamento","conexao":"P2","link":"https://amzn.to/exemplo2"},
-
-        {"nome":"SSD Kingston 480GB","categoria":"Armazenamento","avaliacao":"⭐⭐⭐⭐⭐","imagem":"https://m.media-amazon.com/images/I/61nvsBnH7CL._AC_SX450_.jpg","preco":"Só na AMAZON","capacidade":"480GB","velocidade":"500MB/s","interface":"SATA","link":"https://amzn.to/3NAEXWE"},
-
-        {"nome":"Memória RAM 16GB Corsair","categoria":"Memória","avaliacao":"⭐⭐⭐⭐⭐","imagem":"https://m.media-amazon.com/images/I/61a7pZ4K0XL._AC_SY355_.jpg","preco":"Só na AMAZON","capacidade":"16GB","frequencia":"3200MHz","tipo":"DDR4","link":"https://amzn.to/4sOo4qA"},
-
-        {"nome":"Webcam Logitech C920","categoria":"Acessório","avaliacao":"⭐⭐⭐⭐⭐","imagem":"https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SY355_.jpg","preco":"Só na AMAZON","resolucao":"Full HD 1080p","microfone":"Duplo integrado","conexao":"USB","link":"https://amzn.to/4lzwXls"},
-
-        {"nome":"Cadeira Gamer ThunderX3","categoria":"Gamer","avaliacao":"⭐⭐⭐⭐☆","imagem":"https://m.media-amazon.com/images/I/71VqjPlOJAL._AC_SY355_.jpg","preco":"Só na AMAZON","material":"Couro sintético","ajuste":"Altura e inclinação","suporte":"até 120kg","link":"https://amzn.to/4su2rw1"}
-
-    ]
-
-    filtrados = []
-
-    for p in produtos:
         if busca:
             if busca not in p["nome"].lower() and busca not in p["categoria"].lower():
                 continue
-        filtrados.append(p)
 
-    return render_template("index.html", produtos=filtrados, busca=busca)
+        produtos.append(p)
+
+    return render_template("index.html", produtos=produtos, busca=busca)
 
 
-# ✅ ROTA DE TESTE
+# =========================
+# ADMIN (CADASTRAR PRODUTO)
+# =========================
+@app.route("/admin", methods=["GET", "POST"])
+def admin():
+    if request.method == "POST":
+
+        nome = request.form["nome"]
+        categoria = request.form["categoria"]
+        avaliacao = request.form["avaliacao"]
+        imagem = request.form["imagem"]
+        preco = request.form["preco"]
+        link = request.form["link"]
+
+        conn = sqlite3.connect("produtos.db")
+        cursor = conn.cursor()
+
+        cursor.execute("""
+        INSERT INTO produtos (nome, categoria, avaliacao, imagem, preco, link)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """, (nome, categoria, avaliacao, imagem, preco, link))
+
+        conn.commit()
+        conn.close()
+
+        return redirect("/")
+
+    return render_template("admin.html")
+
+
+# =========================
+# TESTE
+# =========================
 @app.route("/teste")
 def teste():
     return "OK FUNCIONANDO"
 
 
-# ✅ EXECUÇÃO
+# =========================
+# RODAR
+# =========================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
