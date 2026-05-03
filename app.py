@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # =========================
-# BANCO DE DADOS (SQLite)
+# BANCO DE DADOS
 # =========================
 def init_db():
     conn = sqlite3.connect("produtos.db")
@@ -26,11 +26,13 @@ def init_db():
     conn.commit()
     conn.close()
 
-init_db()
+# 🔥 CORREÇÃO PARA RENDER
+with app.app_context():
+    init_db()
 
 
 # =========================
-# HOME (LISTA PRODUTOS)
+# HOME
 # =========================
 @app.route("/")
 def home():
@@ -66,7 +68,7 @@ def home():
 
 
 # =========================
-# ADMIN (CADASTRAR PRODUTO)
+# ADMIN
 # =========================
 @app.route("/admin", methods=["GET", "POST"])
 def admin():
@@ -95,16 +97,13 @@ def admin():
     return render_template("admin.html")
 
 
-# =========================
-# TESTE
-# =========================
 @app.route("/teste")
 def teste():
     return "OK FUNCIONANDO"
 
 
 # =========================
-# RODAR
+# START (RENDER)
 # =========================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
